@@ -31,6 +31,13 @@ project = {
   ]
 }
 
+
+project[:steps].each do |value|
+      value[:person] = project[:committee][0..2]
+end
+puts project
+
+
 # project[:steps][0][:person] = project[:committee][0..2]
 # project[:steps][1][:person] = project[:committee][0]
 # project[:steps][2][:person] = project[:committee][1]
@@ -40,13 +47,3 @@ project = {
 # project[:steps][6][:person] = project[:committee][2]
 # project[:steps][7][:person] = project[:committee][0..2]
 # puts project
-
-first_task = 0
-project.each do |item, info|
-  if item == [:steps]
-    info.each do |action|
-      project[:steps][first_task += 1][:person] = project[:committee][0..2]
-    end
-  end
-end
-puts project
